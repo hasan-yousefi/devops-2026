@@ -7,6 +7,7 @@ helm repo update
 helm upgrade prometheus prometheus-community/kube-prometheus-stack -f prometheus.yaml -n monitoring
 ```
 # Tetragon
+helm repo add cilium https://helm.cilium.io
 helm install tetragon cilium/tetragon -n tetragon --create-namespace
 
 # Chaos-mesh
