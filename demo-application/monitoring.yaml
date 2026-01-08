@@ -17,7 +17,6 @@ metadata:
   name: nginx-app
   labels:
     app: frontend
-    release: prometheus
 spec:
   selector:
     matchLabels:
