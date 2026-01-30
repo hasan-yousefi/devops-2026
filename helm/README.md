@@ -16,3 +16,9 @@ helm install tetragon cilium/tetragon -n tetragon --create-namespace
 helm repo add chaos-mesh https://charts.chaos-mesh.org
 helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/containerd/containerd.sock --version 2.8.0 --create-namespace
 ```
+# K8gb
+```
+kubectl create ns k8gb
+helm repo add k8gb https://www.k8gb.io
+helm install -n k8gb k8gb k8gb/k8gb --version 0.17.0
+```
