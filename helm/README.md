@@ -22,3 +22,7 @@ kubectl create ns k8gb
 helm repo add k8gb https://www.k8gb.io
 helm install -n k8gb k8gb k8gb/k8gb --version 0.17.0
 ```
+# Gateway-api
+```
+kubectl apply --server-side -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.4.1/experimental-install.yaml
+```
