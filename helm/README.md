@@ -26,3 +26,14 @@ helm install -n k8gb k8gb k8gb/k8gb --version 0.17.0
 ```
 kubectl apply --server-side -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.4.1/experimental-install.yaml
 ```
+# Istio
+```
+helm repo add istio https://istio-release.storage.googleapis.com/charts
+helm repo update
+helm install istio-base istio/base -n istio-system --set defaultRevision=default --create-namespace
+helm install istiod istio/istiod -n istio-system --wait
+```
+# Metallb
+```
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.15.3/config/manifests/metallb-native.yaml
+```
