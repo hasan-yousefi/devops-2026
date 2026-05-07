@@ -37,3 +37,14 @@ helm install istiod istio/istiod -n istio-system --wait
 ```
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.15.3/config/manifests/metallb-native.yaml
 ```
+# Kubernetes Upgrade nodes
+```
+kubectl drain <node_name> --ignore-daemonsets --delete-emptydir-data
+apt-mark unhold kubeadm && apt-get update && apt-get install kubeadm='VESION' && apt-mark hold kubeadm
+kubeadm upgrade apply <VERSION>
+kubeadm upgrade node
+apt-mark unhold kubelet kubectl && apt-get update && apt-get install kubectl kubelet  && apt-mark hold kubelet kubectl
+systemctl daemon-reload 
+systemctl restart  kubelet
+kubectl uncordon <node_name>
+```
