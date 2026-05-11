@@ -1,0 +1,38 @@
+{{ define "mattermost.message" }}
+{{ range .Alerts }}
+{{ if eq .Status "firing" }}
+🔥 Status: **FIRING**
+**Started At:** {{ .StartsAt | tz "Asia/Tehran" | date "2006-01-02 15:04:05" }}
+**Reason:** {{ .Annotations.summary }}
+{{ else }}
+✅ Status: **RESOLVED**
+**Resolved At:** {{ .EndsAt | tz "Asia/Tehran" | date "2006-01-02 15:04:05" }}
+**Started At:** {{ .StartsAt | tz "Asia/Tehran" | date "2006-01-02 15:04:05" }}
+**Reason:** {{ .Annotations.summary }}
+{{ end }}
+
+---
+{{ end }}
+**Host:** {{ .CommonLabels.instance }}
+**Severity:** {{ .CommonLabels.severity }}
+{{ if .CommonLabels.name }}**Name:** {{ .CommonLabels.name }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.type }}**Environment:** {{ .CommonLabels.type }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.device }}**Device:** {{ .CommonLabels.device }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.mountpoint }}**Mountpoint:** {{ .CommonLabels.mountpoint }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.exported_instance }}**Exported Instance:** {{ .CommonLabels.exported_instance }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.fstype }}**Fstype:** {{ .CommonLabels.fstype }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.cpu }}**CPU:** {{ .CommonLabels.cpu }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.ceph_daemon }}**Ceph Daemon:** {{ .CommonLabels.ceph_daemon }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.pool_id }}**Pool ID:** {{ .CommonLabels.pool_id }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.user_id }}**User ID:** {{ .CommonLabels.user_id }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.interface }}**Interface:** {{ .CommonLabels.interface }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.pod }}**Pod:** {{ .CommonLabels.pod }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.namespace }}**Namespace:** {{ .CommonLabels.namespace }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.node }}**Node:** {{ .CommonLabels.node }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.clusterenv }}**Cluster Env:** {{ .CommonLabels.clusterenv }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.persistvolumeclaim }}**PVC:** {{ .CommonLabels.persistvolumeclaim }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.phase }}**Phase:** {{ .CommonLabels.phase }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.error_detail }}**error_detail:** {{ .CommonLabels.error_detail }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.vm_name }}**vm_name:** {{ .CommonLabels.vm_name }}{{ "\n" }}{{ end -}}
+{{ if .CommonLabels.error_summary }}**error_summary:** {{ .CommonLabels.error_summary }}{{ "\n" }}{{ end -}}
+{{ end }}
