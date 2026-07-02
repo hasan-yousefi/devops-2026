@@ -1,11 +1,8 @@
-##Namespace Janitor Operator
+## Namespace Janitor Operator
 
 namespace-janitor is a Kubernetes operator that automatically deletes temporary namespaces after a configured TTL.
 
 It introduces a custom resource called TTLNamespace. You create a normal Kubernetes Namespace, then create a TTLNamespace object that points to that namespace and defines how long it should live.
-## Description
-// TODO(user): An in-depth paragraph about your project and overview of use
-
 ## Getting Started
 
 ### Prerequisites
