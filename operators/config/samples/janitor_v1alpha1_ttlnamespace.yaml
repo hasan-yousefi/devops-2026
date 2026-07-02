@@ -1,0 +1,9 @@
+apiVersion: janitor.mydomain.io/v1alpha1
+kind: TTLNamespace
+metadata:
+  labels:
+    app.kubernetes.io/name: p8
+    app.kubernetes.io/managed-by: kustomize
+  name: ttlnamespace-sample
+spec:
+  # TODO(user): Add fields here
