@@ -1,0 +1,8 @@
+apiVersion: web.easy.com/v1
+kind: StaticWebsite
+metadata:
+  name: hello-world
+spec:
+  image: nginx:alpine
+  replicas: 1
+  port: 81

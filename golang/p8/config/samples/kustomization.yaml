@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- janitor_v1alpha1_ttlnamespace.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples
